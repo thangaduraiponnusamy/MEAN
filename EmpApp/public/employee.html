@@ -1,0 +1,33 @@
+<div class="container white" ng-controller="employeeController">
+	<a href="#/">Back</a>
+	 <h1>Employee List</h1>
+		<table class="table">
+		  <thead>
+			<tr>
+			  <th>Name</th>         
+			  <th>Email</th>
+			  <th>Age</th>
+			  <th>Action</th>
+			  <th>&nbsp;</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			<!-- Form to add new employee or update existing -->
+			  <td><input class="form-control" ng-model="user.name"></td>
+			  <td><input class="form-control" ng-model="user.email"></td>
+			  <td><input class="form-control" ng-model="user.age"></td>
+			  <td><button class="btn btn-primary" ng-click="addUser()">Add Employee</button></td>
+			  <td><button class="btn btn-info" ng-click="update()">Update</button>&nbsp;&nbsp;<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
+			</tr>
+			<!-- Display all employees of a company -->
+			<tr ng-repeat="user in users">
+			  <td>{{user.name}}</td>
+			  <td>{{user.email}}</td>
+			  <td>{{user.age}}</td>
+			  <td><button class="btn btn-danger" ng-click="remove(user._id)">Remove</button></td>
+			  <td><button class="btn btn-warning" ng-click="edit(user._id)">Edit</button></td>
+			</tr>
+		  </tbody>
+		</table>
+</div>
